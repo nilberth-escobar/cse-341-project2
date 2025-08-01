@@ -1,0 +1,27 @@
+//Get all students
+GET http://localhost:3000/students HTTP/1.1
+
+###
+//Get a specific user by ID
+GET http://localhost:3000/students/688ae8ebabb2394025df446a HTTP/1.1
+
+###
+//Get all courses
+GET http://localhost:3000/courses HTTP/1.1
+
+###
+//Get a specific course by ID
+GET http://localhost:3000/courses/688ae904abb2394025df4485 HTTP/1.1
+
+###
+//Delete a specific course by ID
+DELETE http://localhost:3000/courses/688ae904abb2394025df4485 HTTP/1.1
+
+###
+//Delete a specific student by ID
+DELETE http://localhost:3000/students/688ae8ebabb2394025df446a HTTP/1.1
+
+###
+//Modify a specific course by ID
+PUT http://localhost:3000/courses/688ae904abb2394025df4485 HTTP/1.1
+
