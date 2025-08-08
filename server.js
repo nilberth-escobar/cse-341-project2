@@ -39,7 +39,7 @@ app
 
 //app.use("/", require("./routes"));
 
-passport.use(new gihubStrategy({
+passport.use(new githubStrategy({
     clientID: process.env.GITHUB_CLIENT_ID,
     clientSecret: process.env.GITHUB_CLIENT_SECRET,
     callbackURL: process.env.CALLBACK_URL    
