@@ -1,8 +1,8 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Courses and Students API",
-    "description": "API for managing courses and student information",
+    "title": "Students and Courses API",
+    "description": "API for managing student and course information",
     "version": "1.0.0"
   },
   "host": "cse-341-project2-3r15.onrender.com",
@@ -107,6 +107,9 @@
           "400": {
             "description": "Bad Request"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -186,6 +189,9 @@
           "400": {
             "description": "Bad Request"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "404": {
             "description": "Not Found"
           },
@@ -207,6 +213,9 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "404": {
             "description": "Not Found"
