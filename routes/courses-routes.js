@@ -3,6 +3,7 @@ const router = express.Router();
 
 const coursesController = require('../controllers/courses-controller');
 const { courseValidationRules, validate } = require('../middleware/validate');
+const isAuthenticated = require('../middleware/authenticate');
 
 // GET all courses
 router.get('/', coursesController.getAllCourses);
@@ -11,12 +12,12 @@ router.get('/', coursesController.getAllCourses);
 router.get('/:id', coursesController.getSingleCourse);
 
 // POST a new course with validation
-router.post('/', courseValidationRules(), validate, coursesController.createCourse);
+router.post('/', isAuthenticated, courseValidationRules(), validate, coursesController.createCourse);
 
 // PUT (update) a course by id with validation
-router.put('/:id', courseValidationRules(), validate, coursesController.updateCourse);
+router.put('/:id', isAuthenticated, courseValidationRules(), validate, coursesController.updateCourse);
 
 // DELETE a course by id
-router.delete('/:id', coursesController.deleteCourse);
+router.delete('/:id', isAuthenticated, coursesController.deleteCourse);
 
 module.exports = router;

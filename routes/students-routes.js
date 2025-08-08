@@ -3,6 +3,7 @@ const router = express.Router();
 
 const studentsController = require('../controllers/students');
 const { studentValidationRules, validate } = require('../middleware/validate');
+const isAuthenticated = require('../middleware/authenticate');
 
 // GET all students
 router.get('/', studentsController.getAllStudents);
@@ -11,12 +12,12 @@ router.get('/', studentsController.getAllStudents);
 router.get('/:id', studentsController.getSingleStudent);
 
 // POST a new student with validation
-router.post('/', studentValidationRules(), validate, studentsController.createStudent);
+router.post('/', isAuthenticated, studentValidationRules(), validate, studentsController.createStudent);
 
 // PUT (update) a student by id with validation
-router.put('/:id', studentValidationRules(), validate, studentsController.updateStudent);
+router.put('/:id', isAuthenticated, studentValidationRules(), validate, studentsController.updateStudent);
 
 // DELETE a student by id
-router.delete('/:id', studentsController.deleteStudent);
+router.delete('/:id', isAuthenticated, studentsController.deleteStudent);
 
 module.exports = router;
